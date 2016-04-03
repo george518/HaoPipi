@@ -1,0 +1,213 @@
+<extend name="Base/common"/>
+<block name="main">
+  <!-- 正文开始 -->
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- 表单开始 -->
+            <section class="panel">
+                <header class="panel-heading">
+                    普通表单元素
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal tasi-form" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>短输入框</label>
+                            <div class="col-sm-2">
+                                <input type="text" placeholder="可校验2-4个字符" class="form-control" required minlength="2" maxlength="4">
+                            </div>
+                            <div class="col-sm-8">
+                                <em></em>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>默认输入框</label>
+                            <div class="col-sm-4">
+                                <input type="url" id="curl" name="url" placeholder="可校验，请输入网址,http或https开头" class="form-control">
+                            </div>
+                            <div class="col-sm-6">
+                                <em></em>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>长输入框</label>
+                            <div class="col-sm-6">
+                                <input type="email" required placeholder="可校验，请输入邮箱" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                <em></em>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>不可修改</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="内容不允许修改" class="form-control" disabled>
+                            </div>
+                            <div class="col-sm-6">
+                                <em></em>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>密码</label>
+                            <div class="col-sm-4">
+                                <input type="password" placeholder="" class="form-control" >
+                            </div>
+                            <div class="col-sm-6">
+                                <em></em>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">默认文字</label>
+                            <div class="col-lg-4">
+                                <p class="form-control-static">email@example.com</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <em></em>
+                            </div>
+                        </div>
+
+                       <!--  <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>日期</label>
+                            <div class="col-sm-3">
+                                <input type="date" placeholder="" class="form-control" >
+                            </div>
+                            <div class="col-sm-7">
+                                <em></em>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>时间</label>
+                            <div class="col-sm-2">
+                                <input type="time" placeholder="" class="form-control" >
+                            </div>
+                            <div class="col-sm-8">
+                                <em></em>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>起止日期</label>
+                            <div class="col-sm-3">
+                                <input type="date" placeholder="" class="form-control" > 
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="date" placeholder="" class="form-control" >
+                            </div>
+                            <div class="col-sm-4">
+                                <em></em>
+                            </div>
+                        </div> -->
+
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="inputSuccess">复选框和单选框</label>
+                            <div class="col-lg-10">
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value="">
+                                      Option one is this and that&mdash;be sure to include why it's great
+                                  </label>
+                              </div>
+
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value="">
+                                      Option one is this and that&mdash;be sure to include why it's great option one
+                                  </label>
+                              </div>
+
+                              <div class="radio">
+                                  <label>
+                                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                      Option one is this and that&mdash;be sure to include why it's great
+                                  </label>
+                              </div>
+                              <div class="radio">
+                                  <label>
+                                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                      Option two can be something else and selecting it will deselect option one
+                                  </label>
+                              </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                          <label class="control-label col-lg-2" for="inputSuccess">横排复选框</label>
+                          <div class="col-lg-10">
+                              <label class="checkbox-inline">
+                                  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                              </label>
+                              <label class="checkbox-inline">
+                                  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                              </label>
+                              <label class="checkbox-inline">
+                                  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                              </label>
+
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>下拉框</label>
+                            <div class="col-sm-4">
+                                <select class="form-control m-bot15">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <em></em>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>评论</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                            </div>
+                            <div class="col-sm-4">
+                                <em></em>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red">*</font>图片上传</label>
+                            <div class="col-sm-6">
+                                <input type="file" id="exampleInputFile">
+                                      <p class="help-block ">点击上传图片，暂时使用</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <em></em>
+                            </div>
+                        </div> -->
+
+
+                        
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-sm-12 text-center">
+                              <button class="btn btn-danger" type="submit">保存</button>
+
+                              &nbsp;&nbsp;&nbsp;&nbsp;
+                              <button class="btn btn-default" type="button">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <!-- 表单结束 -->
+        </div>
+    </div>
+  <!-- 正文结束 -->
+</block>

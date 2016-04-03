@@ -1,0 +1,199 @@
+<extend name="Base/common"/>
+<block name="main">
+  <!-- 正文开始 -->
+  <div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <div class="panel-body">
+                <ul class="summary-list">
+                    <li>
+                        <a href="javascript:;">
+                            <i class=" icon-shopping-cart text-primary"></i>
+                            1 Purchase
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-envelope text-info"></i>
+                            15 Emails
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class=" icon-picture text-muted"></i>
+                            2 Photo Upload
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-tags text-success"></i>
+                            19 Sales
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-microphone text-danger"></i>
+                            4 Audio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-6">
+          <!--carousel start-->
+          <section class="panel">
+            <div id="c-slide" class="carousel slide auto panel-body">
+                <ol class="carousel-indicators out">
+                    <li class="active" data-slide-to="0" data-target="#c-slide"></li>
+                    <li class="" data-slide-to="1" data-target="#c-slide"></li>
+                    <li class="" data-slide-to="2" data-target="#c-slide"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item text-center active">
+                        <h3>推广的产品展示区</h3>
+                        <small class="text-muted">Based on Bootstrap 3</small>
+                    </div>
+                    <div class="item text-center">
+                        <h3>Massive UI Elements</h3>
+                        <small class="text-muted">Fully Responsive</small>
+                    </div>
+                    <div class="item text-center">
+                        <h3>Well Documentation</h3>
+                        <small class="text-muted">Easy to Use</small>
+                    </div>
+                </div>
+                <a data-slide="prev" href="#c-slide" class="left carousel-control">
+                    <i class="icon-angle-left"></i>
+                </a>
+                <a data-slide="next" href="#c-slide" class="right carousel-control">
+                    <i class="icon-angle-right"></i>
+                </a>
+            </div>
+          </section>
+          <!--carousel end-->
+
+      </div>
+
+      <div class="col-lg-6">
+          <section class="panel">
+            <header class="panel-heading">
+                统计图
+            </header>
+            <div class="panel-body">
+                <div id="hero-bar" class="graph">
+                  可放置折线图直方图等 拟使用highCharts生成图表
+                </div>
+            </div>
+          </section>
+      </div>
+  </div>
+  <div class="row">
+
+      <div class="col-lg-6">
+          <section class="panel">
+              <header class="panel-heading">
+                      系统说明
+              </header>
+              <div class="panel-body">
+                    本系统主要是面向，使用————————
+                    
+              </div>
+          </section>
+      </div>
+
+      <div class="col-lg-6">
+          <section class="panel">
+              <header class="panel-heading tab-bg-dark-navy-blue">
+                <ul class="nav nav-tabs nav-justified ">
+                    <li class="active">
+                        <a href="#popular" data-toggle="tab">
+                            Popular
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#comments" data-toggle="tab">
+                            Comments
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#recent" data-toggle="tab">
+                            Recents
+                        </a>
+                    </li>
+                </ul>
+              </header>
+              <div class="panel-body">
+                <div class="tab-content tasi-tab">
+                    <div class="tab-pane active" id="popular">
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/product1.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a class=" p-head" href="#">Item One Tittle</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/product2.png">
+                            </a>
+                            <div class="media-body">
+                                <a class=" p-head" href="#">Item Two Tittle</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/product3.png">
+                            </a>
+                            <div class="media-body">
+                                <a class=" p-head" href="#">Item Three Tittle</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane" id="comments">
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/avatar-mini.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a class="cmt-head" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                                <p> <i class="icon-time"></i> 1 hours ago</p>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/avatar-mini2.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a class="cmt-head" href="#">Nulla vel metus scelerisque ante sollicitudin commodo</a>
+                                <p> <i class="icon-time"></i> 23 mins ago</p>
+                            </div>
+                        </article>
+                        <article class="media">
+                            <a class="pull-left thumb p-thumb">
+                                <img src="__PUBLIC__/System/Base/img/avatar-mini3.jpg">
+                            </a>
+                            <div class="media-body">
+                                <a class="cmt-head" href="#">Donec lacinia congue felis in faucibus. </a>
+                                <p> <i class="icon-time"></i> 15 mins ago</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane " id="recent">
+                        Recent Item goes here
+                    </div>
+                </div>
+              </div>
+          </section>
+      </div>  
+  </div>
+  <!-- 正文结束 -->
+</block>
+
+
