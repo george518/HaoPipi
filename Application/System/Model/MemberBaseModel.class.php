@@ -5,16 +5,18 @@
 ** 创建人员: george Hao<41352963@qq.com>
 ** 创建日期: 2016-04-02
 ******************************************************************/
-namespace System\Model;
-use Think\Model;
 
-class MemberBaseModel extends Model 
+namespace System\Model;
+
+class MemberBaseModel extends SystemModel 
 {
-    
-    public function getAll()
+    //初始化数据
+    public function _initialize()
     {
-        return $this->select();
+    	parent::_initialize();
     }
+
+
 
 
 

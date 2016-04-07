@@ -1,12 +1,25 @@
 <?php
+/******************************************************************
+** 文件名称: BaseModel.class.php
+** 功能描述: 模型抽象类，日志，字段检查等
+** 创建人员: george Hao<41352963@qq.com>
+** 创建日期: 2016-04-06
+******************************************************************/
 
-/**
- * Oa抽象Model
- * 特性：自动检查所有输入数据符合字段类型需要，数据更新后自动记SysLog
- */
-abstract class AbstractOaModel extends Model
+namespace System\Model;
+use Think\Model;
+
+abstract class BaseModel extends Model
 {
 
+    public function _initialize()
+    {
+        $data = I();
+        if(!$this->checkQueryData($data)){
+            echo "非法参数";
+            exit();
+        }
+    }
     protected function _before_insert(&$data, $options)
     {
         return $this->_data_check($data);
@@ -32,6 +45,28 @@ abstract class AbstractOaModel extends Model
         return $this->_syslog($data, '删除数据');
     }
 
+
+    protected function checkQueryData($data)
+    {
+        return true;
+    }
+
+
+    private function _syslog($data, $operation)
+    {
+        if (!isset($data[$this->getPk()])) {
+            if (!empty($_POST['ids'])) {
+                $data[$this->getPk()] = $_POST['ids'];
+            } else if ($this->getModelName() != 'User') {
+                $data = array_unique(array_merge($data, $_POST));
+            }
+        }
+        SysLogModel::log($operation . $this->getModelName(), json_encode($data));
+    }
+
+
+
+
     /**
      * 初始化接口post或者get的数据，按照累中设定_fields进行设定。
      * @param unknown $filter
@@ -53,6 +88,7 @@ abstract class AbstractOaModel extends Model
                 }
             }
         }
+
         if ($filter_pk) {
             unset($arr[$this->pk]);
         }
@@ -279,15 +315,5 @@ abstract class AbstractOaModel extends Model
         return true;
     }
 
-    private function _syslog($data, $operation)
-    {
-        if (!isset($data[$this->getPk()])) {
-            if (!empty($_POST['ids'])) {
-                $data[$this->getPk()] = $_POST['ids'];
-            } else if ($this->getModelName() != 'User') {
-                $data = array_unique(array_merge($data, $_POST));
-            }
-        }
-        SysLogModel::log($operation . $this->getModelName(), json_encode($data));
-    }
+    
 }

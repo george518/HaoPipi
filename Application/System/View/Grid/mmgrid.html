@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>mmgrid</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+         <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/examples/css/normalize.css">
+        <!-- <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/examples/bootstrap/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/src/mmGrid.css">
+        <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/src/theme/bootstrap/mmGrid-bootstrap.css">
+        <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/src/mmPaginator.css">
+        <link rel="stylesheet" href="__PUBLIC__/Plugins/mmgrid/src/theme/bootstrap/mmPaginator-bootstrap.css">
+         <!-- Bootstrap core CSS -->
+        <link href="__PUBLIC__/System/Base/css/bootstrap.min.css" rel="stylesheet">
+        <link href="__PUBLIC__/System/Base/css/bootstrap-reset.css" rel="stylesheet">
+        <!--external css-->
+        <link href="__PUBLIC__/System/Base/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="__PUBLIC__/System/Base/css/owl.carousel.css" type="text/css">
+        <!-- Custom styles for this template -->
+        <link href="__PUBLIC__/System/Base/css/style.css" rel="stylesheet">
+        
+        <style>
+            table tr td {
+                font-size: 12px;
+            }
+            .btn{
+                font-size: 12px;
+            }
+            .btnPrice {
+                display: block;
+                width: 16px;
+                height: 16px;
+                margin: 0px auto;
+                background: url(__PUBLIC__/Plugins/mmgrid/examples/img/botton_g1.gif) no-repeat;
+            }
+
+            .btnPrice:hover {
+                background: url(__PUBLIC__/Plugins/mmgrid/examples/img/botton_g2.gif) no-repeat;
+            }
+        </style>
+        <!--[if lt IE 9]>
+        <script src="__PUBLIC__/Plugins/mmgrid/examples/js/vendor/html5shiv.js"></script>
+        <![endif]-->
+        <script src="__PUBLIC__/Plugins/mmgrid/examples/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    </head>
+    <body>
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                {$pageTitle}列表 
+                            </header>
+                            <!-- 加载搜索开始 -->
+                            <if condition="$showSearch">
+                                <include file="search"/>
+                            </if>
+                                
+                            <div class="panel-body">
+                                <table id="mmg" class="mmg table-condensed">
+                                    <tr>
+                                        <th rowspan="" colspan=""></th>
+                                    </tr>
+                                </table>
+                                <div id="pg" style="text-align: right;"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <script src="__PUBLIC__/Plugins/mmgrid/examples/js/vendor/jquery-1.9.1.min.js"></script>
+        <script src="__PUBLIC__/Plugins/mmgrid/examples/js/plugins.js"></script>
+        <script src="__PUBLIC__/Plugins/mmgrid/examples/js/vendor/json2.js"></script>
+        <script src="__PUBLIC__/Plugins/mmgrid/src/mmGrid.js"></script>
+        <script src="__PUBLIC__/Plugins/mmgrid/src/mmPaginator.js"></script>
+            
+        <script>
+            $(function(){
+
+                var showFields = {$showFields};
+                var columnsWidth = {$columnsWidth};
+
+                var cols = [];
+                $.each(showFields,function(k,v){
+                    var col = [];
+                    col['title'] = v;
+                    col['name']  = k;
+                    if(columnsWidth[k]!==undefined)
+                    {
+                        col['width'] = columnsWidth[k];
+                    } 
+                    col['align'] = 'center';
+                    if(k!=='action')
+                    {
+                        col['sortable'] = true;
+                    }
+                    
+                    cols.push(col);
+                });
+
+                var fixed2 = function(val){
+                    if(typeof val != 'number'){
+                        return '';
+                    }
+                    return val.toFixed(2);
+                }
+
+                var mmg = $('.mmg').mmGrid({
+                    indexCol:true,
+                    height: 'auto', 
+                    cols: cols, 
+                    url: "{$queryUrl}", 
+                    method: 'post',
+                    remoteSort:true,
+                    //items: items,
+                    // sortName: 'mobile',
+                    // sortStatus: 'asc',
+                    multiSelect: true,
+                    //checkCol: true,
+                    fullWidthRows: true,
+                    autoLoad: false,
+                    plugins: [
+                        $('#pg').mmPaginator({})
+                    ],
+                    params: function(){
+                        //如果这里有验证，在验证失败时返回false则不执行AJAX查询。
+                      return {
+                          secucode: $('#secucode').val()
+                      }
+                    }
+                });
+
+                //加载
+                mmg.load();
+
+            });
+        </script>
+    </body>
+</html>
