@@ -10,11 +10,13 @@
 			<include file="Public/header"/>
 			<!-- 页面头部结束 -->
 			<!-- 左侧菜单栏开始 -->
+			<div style="float:left">
 			<include file="Public/aside"/>
+			</div>
 			<!-- 左侧菜单栏结束 -->
 			<!-- 正文开始 -->
-			<div class="ad-main-comment J_mainContent" id="ad-iframe" style="height:100%">
-        		<iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="{:U('System/Index/start')}" frameborder="0" id='iframepage' onLoad="iFrameHeight()" seamless></iframe> 
+			<div class="" id="ad-iframe" style="float:right;">
+        		<iframe class="J_iframe" name="mainFrame"  src="{:U('System/Index/start')}" frameborder="0" id='iframepage' onLoad="iFrameHeight()" seamless></iframe> 
     		</div>
 			<!-- 正文结束 -->
 		</section>
@@ -70,18 +72,23 @@
 			function iFrameHeight() 
 			{   
 				var ifm= document.getElementById("iframepage");   
+				var divfm = document.getElementById('ad-iframe');
+
 
 				var sidebarWidth  = document.getElementById('sidebar');
 				var headTopHeight = document.getElementById('topheader');
 
 
+
 				var iFrameH = window.screen.availHeight;
 				var iFrameW = window.screen.availWidth;
 				ifm.height = iFrameH-headTopHeight.offsetHeight;
-				ifm.width  = iFrameW;
+				ifm.width  = iFrameW;//-sidebarWidth.offsetWidth;
 
+				// console.log(divfm);
+				// divfm.width = iFrameW-180;
 
-				console.log(sidebarWidth.offsetWidth,headTopHeight.offsetHeight,iFrameH,iFrameW);
+				console.log(ifm.height,ifm.width,sidebarWidth.offsetWidth,headTopHeight.offsetHeight,iFrameH,iFrameW);
    
 			}   
 		</script>

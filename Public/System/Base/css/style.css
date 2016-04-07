@@ -3951,11 +3951,38 @@ span.customSelect.changed {
     text-align: right;
 }
 
+.form-horizontal .control-label .search-label {
+    font-weight: normal;
+    font-size: 12px;
+    text-align: right;
+}
+
+
 .form-horizontal.tasi-form .form-group {
     border-bottom: 0px solid #eff2f7;
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
+
+.pr5{
+    padding-right: 5px;
+}
+
+.pl{
+    padding-left: 5px;
+}
+
+.pr0{
+    padding-right: 0px;
+}
+.pl0{
+    padding-left: 0px;
+}
+
+.pb0{
+    padding-bottom: 0px !important;
+}
+
 
 /*重新定义modal位置 by haodaquan*/
 @media screen and (min-width:768px){.modal-dialog{right:auto;left:50%;width:600px;padding-top:100px;padding-bottom:30px}
