@@ -63,23 +63,35 @@
 	  </script>
 
 		<script type="text/javascript" language="javascript">   
+			//iframe 定位，by george
 			function iFrameHeight() 
 			{   
 				var ifm= document.getElementById("iframepage");   
 				var divfm = document.getElementById('ad-iframe');
 
-
 				var sidebarWidth  = document.getElementById('sidebar');
 				var headTopHeight = document.getElementById('topheader');
-
-
-
 				var iFrameH = window.screen.availHeight;
 				var iFrameW = window.screen.availWidth;
 				ifm.height = iFrameH-headTopHeight.offsetHeight;
 				ifm.width  = iFrameW;
    
 			}   
+
+			//左侧栏定位 by George
+		    $(document).ready(function(){
+		        $('.sub-menu ul>li').on('click',function(){
+		                $(this).addClass('active');
+		                $(this).parent().parent().addClass('active');
+		                $(this).siblings().removeClass('active');
+		            });
+
+		        $('li.sub-menu').on('click',function(){
+		        	$(this).addClass('active');
+		        	$(this).siblings().removeClass('active');
+		        	$(this).siblings().find('ul.sub li').removeClass('active');
+		        });
+		    });
 		</script>
 	</body>
 </html>
