@@ -1,15 +1,41 @@
 <header class="header white-bg" id="topheader">
-            <div class="sidebar-toggle-box">
+            <!-- <div class="sidebar-toggle-box">
                 <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
-            </div>
+            </div> -->
             <!--logo start-->
-            <a href="#" class="logo">Flat<span>lab</span></a>
+            <a href="#" class="logo">公司名称<span>后台管理系统</span></a>
             <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <!-- <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li> -->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="__PUBLIC__/System/Base/img/avatar1_small.jpg">
+                            <span class="username">Jhon Doue</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
+                            <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                            <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
+                            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+
+            <div class="nav notify-row pull-right" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-tasks"></i>
                             <span class="badge bg-success">6</span>
@@ -89,7 +115,7 @@
                                 <a href="#">See All Tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
                     <li id="header_inbox_bar" class="dropdown">
@@ -212,29 +238,5 @@
                 </ul>
                 <!--  notification end -->
             </div>
-            <div class="top-nav ">
-                <!--search & user info start-->
-                <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder="Search">
-                    </li>
-                    <!-- user login dropdown start-->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="__PUBLIC__/System/Base/img/avatar1_small.jpg">
-                            <span class="username">Jhon Doue</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu extended logout">
-                            <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
-                            <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
-                            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-                        </ul>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!--search & user info end-->
-            </div>
+            
         </header>
