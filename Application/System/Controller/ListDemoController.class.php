@@ -29,7 +29,7 @@ class ListDemoController extends SystemController
                                 'sex'         => 50,
                             );
     //设置标题，非必设置,不设置需要查询权限节点名称
-    public $pageTitle = 'Mmgrid测试';
+    public $pageTitle = '会员基础';
     //设置模型名称，非必设置，不设置默认控制器名称，如这里默认为‘ListDemo’
     public $modelName = 'MemberBase'; 
 
@@ -81,7 +81,7 @@ class ListDemoController extends SystemController
      */
     public function listDataFormat($listData)
     {
-        if(empty($listData)) return array('111');
+        if(empty($listData)) return array('');
 
         $listFormat = array();
         $buttons = array(
@@ -89,6 +89,9 @@ class ListDemoController extends SystemController
                 'edit'   => '编辑',
                 'delete' => '删除'
             );
+
+        $gender = C('GENDER');
+        $rank   = array('1'=>'一级','2'=>'二级');//公共可以在config中配置，个别可以写到这里
        
         foreach ($listData as $key => $value) 
         {
@@ -97,6 +100,9 @@ class ListDemoController extends SystemController
             if(isset($value['addtime'])){
                 $listFormat[$key]['addtime'] = date('Y-m-d H:i:s',$value['addtime']);
             }
+
+            $listFormat[$key]['sex'] = isset($gender[$listFormat[$key]['sex']]) ? $gender[$listFormat[$key]['sex']] : '未知';
+            $listFormat[$key]['rank_id'] = isset($rank[$listFormat[$key]['rank_id']]) ? $rank[$listFormat[$key]['rank_id']] : '未知';
 
             if(isset($value['edittime'])){
                 $listFormat[$key]['edittime'] = date('Y-m-d H:i:s',$value['edittime']);

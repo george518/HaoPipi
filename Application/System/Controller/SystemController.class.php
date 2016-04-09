@@ -139,28 +139,6 @@ class SystemController extends BaseController
     public function listDataFormat($listData)
     {
         if(empty($listData)) return array('');
-
-        $listFormat = array();
-        $buttons = array(
-                'detail' => '查看',
-                'edit'   => '编辑',
-                'delete' => '删除'
-            );
-       
-        foreach ($listData as $key => $value) 
-        {
-            $listFormat[$key] = $value;
-            //数据的格式化及添加操作按钮
-            if(isset($value['addtime'])){
-                $listFormat[$key]['addtime'] = date('Y-m-d H:i:s',$value['addtime']);
-            }
-
-            if(isset($value['edittime'])){
-                $listFormat[$key]['edittime'] = date('Y-m-d H:i:s',$value['edittime']);
-            }
-            $listFormat[$key]['action'] = getButton($value['member_id'],$buttons);
-        }
-        return $listFormat;
     }
 
     /**
@@ -171,6 +149,7 @@ class SystemController extends BaseController
      */
     public function detail()
     {
+        echo "detail方法不存在";
         $this->display();
     }
 
@@ -183,6 +162,7 @@ class SystemController extends BaseController
      */
     public function input()
     {
+        echo "input方法不存在";
         $this->display();
     }
 
@@ -195,7 +175,7 @@ class SystemController extends BaseController
     public function delete()
     {
         //逻辑
-        $this->ajaxReturn(array('status'=>200,'message'=>'成功'));
+        $this->ajaxReturn(array('status'=>300,'message'=>'删除方法不存在'));
     }
 
 

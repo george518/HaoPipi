@@ -10,7 +10,7 @@ return array(
 			'default'       => 'success',//普通操作
 		),
 
-	'gender' => array(
+	'GENDER' => array(
 			'1' => '男',
 			'2' => '女'
 		)
