@@ -138,7 +138,7 @@ class SystemController extends BaseController
      */
     public function listDataFormat($listData)
     {
-        if(empty($listData)) return array('111');
+        if(empty($listData)) return array('');
 
         $listFormat = array();
         $buttons = array(
@@ -161,6 +161,41 @@ class SystemController extends BaseController
             $listFormat[$key]['action'] = getButton($value['member_id'],$buttons);
         }
         return $listFormat;
+    }
+
+    /**
+     * [detail 详情页]
+     * @Author haodaquan
+     * @Date   2016-04-08
+     * @return [type]     [详情页]
+     */
+    public function detail()
+    {
+        $this->display();
+    }
+
+
+    /**
+     * [input 编辑或者新增]
+     * @Author haodaquan
+     * @Date   2016-04-08
+     * @return [type]     [description]
+     */
+    public function input()
+    {
+        $this->display();
+    }
+
+    /**
+     * [delete 删除]
+     * @Author haodaquan
+     * @Date   2016-04-08
+     * @return [type]     [description]
+     */
+    public function delete()
+    {
+        //逻辑
+        $this->ajaxReturn(array('status'=>200,'message'=>'成功'));
     }
 
 

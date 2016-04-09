@@ -73,7 +73,7 @@ class ListDemoController extends SystemController
     }
 
     /**
-     * [listDataFormat 列表数据格式化,子类一般需要重写]
+     * [listDataFormat 列表数据格式化,]
      * @Author haodaquan
      * @Date   2016-04-07
      * @param  array      $data [description]
@@ -105,5 +105,4 @@ class ListDemoController extends SystemController
         }
         return $listFormat;
     }
-
 }

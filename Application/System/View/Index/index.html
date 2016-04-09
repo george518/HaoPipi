@@ -11,7 +11,7 @@
 			<!-- 页面头部结束 -->
 			<!-- 左侧菜单栏开始 -->
 			<div style="float:left">
-			<include file="Public/aside"/>
+				<include file="Public/aside"/>
 			</div>
 			<!-- 左侧菜单栏结束 -->
 			<!-- 正文开始 -->
@@ -37,12 +37,6 @@
 
     <!--common script for all pages-->
     <script src="__PUBLIC__/System/Base/js/common-scripts.js"></script>
-
-    <!--script for this page-->
-    <script src="__PUBLIC__/System/Base/js/sparkline-chart.js"></script>
-    <script src="__PUBLIC__/System/Base/js/easy-pie-chart.js"></script>
-
-    
 
 	  <script>
 
@@ -83,12 +77,7 @@
 				var iFrameH = window.screen.availHeight;
 				var iFrameW = window.screen.availWidth;
 				ifm.height = iFrameH-headTopHeight.offsetHeight;
-				ifm.width  = iFrameW;//-sidebarWidth.offsetWidth;
-
-				// console.log(divfm);
-				// divfm.width = iFrameW-180;
-
-				console.log(ifm.height,ifm.width,sidebarWidth.offsetWidth,headTopHeight.offsetHeight,iFrameH,iFrameW);
+				ifm.width  = iFrameW-180;
    
 			}   
 		</script>

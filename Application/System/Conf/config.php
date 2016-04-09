@@ -9,4 +9,9 @@ return array(
 			'disable'       => 'default',//禁止或者默认
 			'default'       => 'success',//普通操作
 		),
+
+	'gender' => array(
+			'1' => '男',
+			'2' => '女'
+		)
 );

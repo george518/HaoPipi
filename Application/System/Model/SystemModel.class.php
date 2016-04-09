@@ -114,8 +114,4 @@ class SystemModel extends BaseModel
         return $map;
     }
 
-
-
-
-
 }
