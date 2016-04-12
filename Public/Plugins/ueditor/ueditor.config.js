@@ -34,7 +34,14 @@
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         
-        , toolbars: [["source","undo","redo","insertunorderedlist","insertorderedlist","link","unlink","cleardoc","selectall","searchreplace","preview","drafts","simpleupload","insertimage","date","map","fullscreen"],["bold","italic","underline","forecolor","strikethrough","fontborder","backcolor","justifyleft","justifycenter","justifyright","justifyjustify","formatmatch"]]
+        // , toolbars: [["source","undo","redo","insertunorderedlist","insertorderedlist","link","unlink","cleardoc","selectall","searchreplace","preview","drafts","simpleupload","insertimage","date","map","fullscreen"],["bold","italic","underline","forecolor","strikethrough","fontborder","backcolor","justifyleft","justifycenter","justifyright","justifyjustify","formatmatch"]]
+         , toolbars: [
+            ['source','|', 'undo', 'redo', '|','rowspacingtop', 'rowspacingbottom', 'lineheight', '|','inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols','|','simpleupload', 'insertimage', 'emotion', 'map','template', 'background','|', 
+            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain',  '|',
+            'horizontal', 'date', 'time', 'spechars','|','imagenone', 'imageleft', 'imageright', 'imagecenter','|',
+            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','indent', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|','customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+              ],
+            ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
         //    'anchor':'', 'undo':''

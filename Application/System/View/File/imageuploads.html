@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>图片上传</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- <link rel="stylesheet" href="/Public/css/bootstrap.min.css"  />
+  <link rel="stylesheet" href="/Public/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/Public/css/jquery-ui-1.10.3.full.min.css" />
+  <link rel="stylesheet" href="/Public/css/ace.min.css" />
+  <link rel="stylesheet" href="/Public/css/ace-rtl.min.css" />
+  <link rel="stylesheet" href="/Public/css/ace-skins.min.css" />
+  <link rel="stylesheet" href="/Public/css/style.css" /> -->
+</head>
+<body>
+<form id="form_data" enctype="multipart/form-data"  name="form_data" method="post">
+<input type="file" name="image" id="image" value="" style="display:none;" onchange="uploadImg();"></input>
+<input type="hidden" name="p" value="{=$p=}"></input>
+<a id="upload_file" class="btn btn-danger upBtn" onclick="startImg();return false;" href="#">上传图片</a>
+</form>
+<script src="__PUBLIC__/System/Base/js/jquery-1.8.3.min.js">
+  
+</script><script type="text/javascript">
+$(function(){
+	$(".imgiframe", window.parent.document).css({"width":"250px","height":"50px"});
+});
+
+function startImg() {
+  document.getElementById('image').value='';
+  document.getElementById('image').click();
+  return false;
+}
+function uploadImg() {
+  document.getElementById('upload_file').disabled = true;
+  document.getElementById('form_data').submit();
+  return false;
+}
+</script>
+
+
+</body>
+</html>

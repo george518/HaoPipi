@@ -3,65 +3,18 @@
   <!-- 正文开始 -->
     <div class="row">
         <div class="col-lg-12">
-            <!-- 编辑开始 -->
+
             <section class="panel">
                 <header class="panel-heading">
                     编辑 id:{$_GET['id']}
                 </header>
                 <div class="panel-body">
-                    内容，注意返回和保存按钮   <a href="javascript:history.go(-1)">临时返回</a>
-
-
-                    <include file="Public/ueditor"/>  
-
-
-                    <script type="text/plain" id="j_ueditorupload" style="height:5px;display:none;" ></script>
-    <script>
-      //实例化编辑器
-      var o_ueditorupload = UE.getEditor('j_ueditorupload',
-      {
-        autoHeightEnabled:false
-      });
-      o_ueditorupload.ready(function ()
-      {
-    
-    o_ueditorupload.hide();//隐藏编辑器
-    
-    //监听图片上传
-    o_ueditorupload.addListener('beforeInsertImage', function (t,arg)
-    {
-          alert('这是图片地址：'+arg[0].src);
-    });
-    
-    /* 文件上传监听
-     * 需要在ueditor.all.min.js文件中找到
-     * d.execCommand("insertHtml",l)
-     * 之后插入d.fireEvent('afterUpfile',b)
-     */
-        o_ueditorupload.addListener('afterUpfile', function (t, arg)
-        {
-          alert('这是文件地址：'+arg[0].url);
-        });
-      });
-      
-      //弹出图片上传的对话框
-      function upImage()
-      {
-        var myImage = o_ueditorupload.getDialog("insertimage");
-        myImage.open();
-      }
-      //弹出文件上传的对话框
-      function upFiles()
-      {
-        var myFiles = o_ueditorupload.getDialog("attachment");
-        myFiles.open();
-      } 
-    </script>
-    
-    <button type="button" onClick="upImage()">调用上传图片模块</button>
-    <br>
-    <button type="button" onClick="upFiles()">调用上传文件模块</button>
+                    <a href="" id="upload_img">上传图片</a>
+                    <div id="show_img">222</div>
+                    <input type="text" name="img_src" value="">
                 </div>
+
+
             </section>
 
             <br>
@@ -72,4 +25,12 @@
         </div>
     </div>
   <!-- 正文结束 -->
+<script type="text/javascript" src="__PUBLIC__/Plugins/plupload-2.1.2/js/plupload.full.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/System/Js/upload.js"></script>
+<script>
+  plupImage();
+</script>
+
+
 </block>
+
