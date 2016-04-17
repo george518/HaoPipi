@@ -13,5 +13,5 @@ return array(
 	'GENDER' => array(
 			'1' => '男',
 			'2' => '女'
-		)
+		),
 );

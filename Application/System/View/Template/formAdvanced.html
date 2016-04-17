@@ -48,12 +48,21 @@
                         
                         <div class="form-group">
                             <label class="col-sm-2 control-label text-right"><font color="red"></font>图片上传</label>
-                            <div class="col-sm-6">
-                                <input type="file" id="exampleInputFile">
-                                      <p class="help-block ">点击上传图片，暂时使用</p>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" name="img_src02" value="">
                             </div>
-                            <div class="col-sm-4">
-                                <em></em>
+                            <div class="col-sm-1">
+                                <button type="button" id="upload_img02" class="btn btn-sm btn-primary">上传图片</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>图片大小90*90</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label text-right"><font color="red"></font></label>
+
+                            <div class="col-sm-10" id="show_img02">
                             </div>
                         </div>
 
@@ -84,6 +93,11 @@
             <!-- 表单结束 -->
         </div>
     </div>
+<!-- 引入上传图片js开始 -->
+<include file="Public/plupload"/>
+<!-- 引入上传图片js结束 -->
+<script> plupImage('Demos',90,90,'upload_img02','show_img02','img_src02'); </script>
+<!-- function plupImage(file='',width='90',height='90',btn='upload_img',imgShowId='show_img',inputName='img_src',maxFileSize='2mb') -->
   <!-- 正文结束 -->
   <include file="Public/ueditor"/>
 </block>

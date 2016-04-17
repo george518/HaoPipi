@@ -64,3 +64,90 @@ INSERT INTO `zxkm_member_base` (`member_id`, `nick_name`, `member_img`, `mobile`
 (31, 'oao_186****2402', NULL, '18611422402', '203efe78613e6760415995d4641be5eb', 1, 1446631457, 1446631457, 0, '0000-00-00', '', 0, 0, '0.00', '0.00', NULL, NULL),
 (32, 'oao_186****7806', NULL, '18610647806', '203efe78613e6760415995d4641be5eb', 1, 1446709553, 1446632247, 0, '0000-00-00', '', 0, 0, '200.00', '200.00', NULL, NULL),
 (33, 'oao_135****3969', NULL, '13522123969', '203efe78613e6760415995d4641be5eb', 1, 1446633391, 1446633391, 0, '0000-00-00', '', 0, 0, '0.00', '0.00', NULL, NULL);
+
+
+
+-- ----------------------------
+-- Table structure for `zxkm_admin`
+-- ----------------------------
+DROP TABLE IF EXISTS `zxkm_admin`;
+CREATE TABLE `zxkm_admin` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
+  `account` varchar(32) DEFAULT NULL COMMENT '管理员账号',
+  `password` varchar(36) DEFAULT NULL COMMENT '管理员密码',
+  `login_time` int(11) DEFAULT NULL COMMENT '最后登录时间',
+  `login_count` mediumint(8) NOT NULL COMMENT '登录次数',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '账户状态，禁用为0   启用为1',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zxkm_admin
+-- ----------------------------
+INSERT INTO `zxkm_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1448606155', '335', '1', '1437979578');
+
+-- ----------------------------
+-- Table structure for `zxkm_auth_group`
+-- ----------------------------
+DROP TABLE IF EXISTS `zxkm_auth_group`;
+CREATE TABLE `zxkm_auth_group` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `title` char(100) NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `rules` char(80) NOT NULL DEFAULT '',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zxkm_auth_group
+-- ----------------------------
+INSERT INTO `zxkm_auth_group` VALUES ('30', '超级管理组', '1', '1,2,3,14,15,16,17,18,19,21,25,4,5,6,9,11,24,35,36,37,38,12,13,22,23', '1445158837');
+
+-- ----------------------------
+-- Table structure for `zxkm_auth_group_access`
+-- ----------------------------
+DROP TABLE IF EXISTS `zxkm_auth_group_access`;
+CREATE TABLE `zxkm_auth_group_access` (
+  `uid` smallint(5) unsigned NOT NULL,
+  `group_id` smallint(5) unsigned NOT NULL,
+  UNIQUE KEY `uid_group_id` (`uid`,`group_id`),
+  KEY `uid` (`uid`),
+  KEY `group_id` (`group_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zxkm_auth_group_access
+-- ---------------------------
+INSERT INTO `zxkm_auth_group_access` VALUES ('1', '30');
+INSERT INTO `zxkm_auth_group_access` VALUES ('2', '31');
+INSERT INTO `zxkm_auth_group_access` VALUES ('3', '33');
+INSERT INTO `zxkm_auth_group_access` VALUES ('4', '31');
+INSERT INTO `zxkm_auth_group_access` VALUES ('5', '31');
+
+-- ----------------------------
+-- Table structure for `zxkm_auth_rule`
+-- ----------------------------
+DROP TABLE IF EXISTS `zxkm_auth_rule`;
+CREATE TABLE `zxkm_auth_rule` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL DEFAULT '',
+  `title` varchar(20) NOT NULL DEFAULT '',
+  `type` tinyint(1) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
+  `condition` char(100) NOT NULL DEFAULT '',
+  `pid` smallint(5) NOT NULL COMMENT '父级ID',
+  `sort` tinyint(4) NOT NULL DEFAULT '50' COMMENT '排序',
+  `create_time` int(11) NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of zxkm_auth_rule
+-- ----------------------------
+INSERT INTO `zxkm_auth_rule` VALUES ('36', 'Admin/admin_list', '管理员列表', '1', '1', '', '35', '50', '1444546437');
+INSERT INTO `zxkm_auth_rule` VALUES ('35', 'Admin/index', '系统管理', '1', '1', '', '0', '50', '1444582187');
+INSERT INTO `zxkm_auth_rule` VALUES ('37', 'Admin/auth_group', '用户组', '1', '1', '', '35', '50', '1445439984');
+INSERT INTO `zxkm_auth_rule` VALUES ('38', 'Admin/auth_rule', '权限菜单', '1', '1', '', '35', '50', '1445439984');

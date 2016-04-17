@@ -1,11 +1,26 @@
-function plupImage(width='200',height='200',btn='upload_img',imgShowId='show_img',inputName='img_src',maxFileSize='2mb',extensions='jpg,png,gif')
+/**
+ * [plupImage 单图上传js]
+ * @Author haodaquan
+ * @Date   2016-04-12
+ * @param  {String}   file        [文件名]
+ * @param  {String}   width       [图片宽度]
+ * @param  {String}   height      [图片高度]
+ * @param  {String}   btn         [图片按钮]
+ * @param  {String}   imgShowId   [显示图片的id]
+ * @param  {String}   inputName   [提交input按钮]
+ * @param  {String}   maxFileSize [最大上传大小]
+ * @return {[type]}               [void]
+ */
+function plupImage(file='',width='',height='',btn='upload_img',imgShowId='show_img',inputName='img_src',maxFileSize='2mb')
 {
+
+    var url = "/System/File/uploadImg/w/"+width+"/h/"+height+"/size/"+maxFileSize+"/file/"+file;
     var uploader = new plupload.Uploader({ //创建实例的构造方法 
         runtimes: 'html5,flash,silverlight,html4', 
         //上传插件初始化选用那种方式的优先级顺序 
         browse_button: btn, 
         // 上传按钮 
-        url: "/System/File/uploadImg", 
+        url: url, 
         //远程上传地址 
         flash_swf_url: 'Public/Plugins/plupload-2.1.2/js/Moxie.swf', 
         //flash文件地址 
@@ -17,39 +32,37 @@ function plupImage(width='200',height='200',btn='upload_img',imgShowId='show_img
             mime_types: [ //允许文件上传类型 
             { 
                 title: "files", 
-                extensions: extensions 
-            }] 
+                extensions: 'jpg,png,gif' 
+            }] ,
         }, 
         multi_selection: false, 
         //true:ctrl多文件上传, false 单文件上传 
         init: { 
             FilesAdded: function(up, files) { //文件上传前 
-                console.log(files);
-                if ($("#ul_pics").children("li").length > 30) { 
-                    alert("您上传的图片太多了！"); 
-                    uploader.destroy(); 
-                } else { 
-
-                    // var li = ''; 
-                    // plupload.each(files,function(file) { //遍历文件 
-                    //    console.log(file); li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>"; 
-                    // }); 
-                    // $("#ul_pics").append(li); 
-                    uploader.start(); 
-                } 
+                uploader.start();
+                //uploader.destroy();
             }, 
             UploadProgress: function(up, file) { //上传中，显示进度条 
                 // $("#" + file.id).find('.bar').css({ 
-                //     "width": file.percent + "%" 
+                //     "width": file.percent + "%"  
                 // }).find(".percent").text(file.percent + "%"); 
             }, 
             FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
+
                 var data = JSON.parse(info.response); 
-                $("#" + imgShowId).html("<div class='img'><img src='/" + data.pic + "'/></div><p>" + data.name + "</p>"); 
-                $('input[name='+inputName+']').val(data.pic);
+                if(data.error!=0){
+                    alert(data.error);
+                    return false;
+                }else
+                {
+                    $("#" + imgShowId).html("<div class='img'><img src='/" + data.pic + "'/></div>"); 
+                    $('input[name='+inputName+']').val(data.pic);
+                }
             }, 
-            Error: function(up, err) { //上传出错的时候触发 
-                alert(err.message); 
+            Error: function(up, err) { 
+                //上传出错的时候触发 
+                //console.log(err.error);
+                //alert(err.message); 
             } 
         } 
     }); 

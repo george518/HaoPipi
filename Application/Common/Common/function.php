@@ -56,3 +56,22 @@ function getButton($id=0,$btnArr='')
 
 	return $btn;
 }
+
+/**
+ * [mkDirs 创建文件目录]
+ * @Author haodaquan
+ * @Date   2016-04-14
+ * @param  [type]     $dir [文件目录： 1/2/3]
+ * @return [type]          [description]
+ */
+function mkDirs($dir){
+    if(!is_dir($dir)){
+        if(!mkDirs(dirname($dir))){
+            return false;
+        }
+        if(!mkdir($dir,0777)){
+            return false;
+        }
+    }
+    return true;
+}

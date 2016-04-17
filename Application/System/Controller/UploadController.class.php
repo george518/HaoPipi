@@ -12,6 +12,6 @@ class UploadController extends SystemController
 {
     public function index()
     {
-        
+        $this->display();
     }
 }

@@ -1,0 +1,40 @@
+<div class="panel-body" style="padding-bottom:0px">
+    <form class="form-horizontal" method="post" id="_CustomizedQueryForm" role="form">
+        <div class="form-group form-group-sm">
+            <div class="col-xs-3  pl0">
+                <label for="account" class="col-xs-4 control-label pr5 pl0"><small>账号名称</small></label>
+                <div class="col-xs-8 pr0 pl0">
+                    <input type="text" class="form-control input-sm" id="account" name="account" placeholder="账号名称">
+                </div>
+            </div>
+
+            <div class="col-xs-3  pl0">
+                <label for="status" class="col-xs-4 control-label pr5 pl0"><small>账号状态 </small></label>
+                <div class="col-xs-8 pr0 pl0">
+                    <select class="form-control input-sm" name="status">
+                        <option value="0">选择状态</option>
+                        <foreach name='userType' item="u" key="k">
+                            <option value="{$k}">{$u}</option>
+                        </foreach>
+                    </select>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="form-group pb0">                          
+            <div class="col-lg-6">
+                <a href="{:U('System/AuthUser/input')}"><button type="button" class="btn btn-sm btn-info">新&nbsp;&nbsp;增</button></a>
+            </div>
+            <div class="col-lg-6 text-right">
+
+                <input type='button' value='查询' id="_CustomizedQueryFormSubmit" class='btn btn-info'>
+                <input type='reset' value='重置'  id="_CustomizedQueryFormReset" class='btn pgbtn'>
+                    
+                <!-- <button type="submit" class="btn btn-sm btn-success">搜&nbsp;&nbsp;索</button>&nbsp;&nbsp;
+                <button type="reset" class="btn btn-sm btn-default">重&nbsp;&nbsp;置</button> -->
+            </div>
+        </div>
+    </form>
+</div>

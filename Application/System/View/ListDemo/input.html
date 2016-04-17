@@ -3,18 +3,15 @@
   <!-- 正文开始 -->
     <div class="row">
         <div class="col-lg-12">
-
             <section class="panel">
                 <header class="panel-heading">
                     编辑 id:{$_GET['id']}
                 </header>
                 <div class="panel-body">
-                    <a href="" id="upload_img">上传图片</a>
-                    <div id="show_img">222</div>
+                    <a href="###" id="upload_img">上传图片</a>
+                    <div id="show_img"></div>
                     <input type="text" name="img_src" value="">
                 </div>
-
-
             </section>
 
             <br>
@@ -25,12 +22,12 @@
         </div>
     </div>
   <!-- 正文结束 -->
-<script type="text/javascript" src="__PUBLIC__/Plugins/plupload-2.1.2/js/plupload.full.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/System/Js/upload.js"></script>
-<script>
-  plupImage();
-</script>
 
+
+<!-- 引入上传图片js开始 -->
+<include file="Public/upload"/>
+<!-- 引入上传图片js结束 -->
+<script> plupImage(); </script>
 
 </block>
 
