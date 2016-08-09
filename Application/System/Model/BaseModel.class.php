@@ -54,14 +54,7 @@ abstract class BaseModel extends Model
 
     private function _syslog($data, $operation)
     {
-        if (!isset($data[$this->getPk()])) {
-            if (!empty($_POST['ids'])) {
-                $data[$this->getPk()] = $_POST['ids'];
-            } else if ($this->getModelName() != 'User') {
-                $data = array_unique(array_merge($data, $_POST));
-            }
-        }
-        SysLogModel::log($operation . $this->getModelName(), json_encode($data));
+        //记录日志
     }
 
 
@@ -301,17 +294,6 @@ abstract class BaseModel extends Model
      */
     private function _type_value_check($fieldType, &$value)
     {
-        Log::record("AbstractOaModel::_type_value_check($fieldType, $value)");
-
-        if (strpos($fieldType, 'int') === 0) {
-            return $value !== '' && intval($value) == $value;
-        } else if (strpos($fieldType, 'varchar') === 0) {
-            if (strlen($fieldType) < strlen('varchar(1000)')) {
-                // 对短文本字段trim，长文本字段不trim
-                $value = trim($value);
-            }
-            return $value !== '' && strval($value) == $value;
-        }
         return true;
     }
 

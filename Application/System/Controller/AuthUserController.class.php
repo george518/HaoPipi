@@ -120,21 +120,89 @@ class AuthUserController extends SystemController
             $this->assign('pageTitle','新增'.$this->pageTitle);
         }else{
             //编辑
-
+            $this->assign('pageTitle','编辑'.$this->pageTitle);
+            $where = array('id'=>$id);
+            $info = D($this->modelName)->getAdminInfo($where);
+            $this->assign('info',$info);
         }
 
         $this->display();
     }
 
-
+    /**
+     * [inputAjax 处理新增和编辑]
+     * @Author haodaquan
+     * @Date   2016-04-27
+     * @return [type]     [description]
+     */
     public function inputAjax()
     {
         $id = I('post.id',0,'intval');
+        $data = I('post.');
         if($id===0)
         {
             //新增
+            
+            if ($data['password'] != $data['repassword']) {
+                $this->ajaxReturn(array('status'=>300,'message'=>'两次密码不一致'));
+                exit();
+            }else
+            {
+                unset($data['repassword']);
+            }
+
+            //判断用户名是否重复,检验用户名是否合法
+            $where = array('account'=>$data['account']);
+            $count  = D($this->modelName)->getCount($where);
+            if($count>0){
+                $this->ajaxReturn(array('status'=>300,'message'=>'用户名已经被占用，请换个用户名'));
+            }
+            $data['create_time'] = time();
+            $data['login_count'] = 1;
+            $id = D($this->modelName)->addData($data);
+            if($id>0){
+                $this->ajaxReturn(C('RESOK'));
+            }else{
+                $this->ajaxReturn(C('RESERR'));
+            }
         }else{
             //修改
+            if ($data['password'] != $data['repassword'] && $data['password'] && $data['repassword']) {
+                $this->ajaxReturn(array('status'=>300,'message'=>'两次密码不一致'));
+                exit();
+            }else
+            {
+                unset($data['repassword']);
+                unset($data['password']);
+            }
+             
+            $res  = D($this->modelName)->saveData($data);
+            if($res!=false){
+                $this->ajaxReturn(C('RESOK'));
+            }else{
+                $this->ajaxReturn(C('RESERR'));
+            }
+        } 
+    }
+
+    /**
+     * [delete 删除]
+     * @Author haodaquan
+     * @Date   2016-04-29
+     * @return [type]     [description]
+     */
+    public function delete()
+    {
+        $id = I('post.id',0,'intval');
+        if($id!==0)
+        {
+            $where = array('id'=>$id);
+            $res  = D($this->modelName)->deleteData($where);
+            if($res){
+                $this->ajaxReturn(C('RESOK'));
+            }else{
+                $this->ajaxReturn(C('RESERR'));
+            }
         }
     }
 }

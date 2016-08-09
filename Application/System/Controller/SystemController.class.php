@@ -38,8 +38,8 @@ class SystemController extends BaseController
 
         $this->_displayMmgrids();
     }
-
-    protected function getPageTitle()
+    
+    protected function getPageTitle($id=1)
     {
         if($this->pageTitle)
         {

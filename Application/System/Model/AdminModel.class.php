@@ -16,6 +16,18 @@ class AdminModel extends SystemModel
     	parent::_initialize();
     }
 
+    /**
+     * [getAdminInfo 获取单个用户信息]
+     * @Author haodaquan
+     * @Date   2016-04-27
+     * @param  [type]     $where [条件数组]
+     * @return [type]            [description]
+     */
+    public function getAdminInfo($where)
+    {
+    	return $this->where($where)->find();
+    }
+
 
 
 

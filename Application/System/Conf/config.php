@@ -14,4 +14,7 @@ return array(
 			'1' => '男',
 			'2' => '女'
 		),
+
+	'RESOK'  => array('status'=>200,'message'=>'操作成功'),
+	'RESERR' => array('status'=>300,'message'=>'操作失败'),
 );

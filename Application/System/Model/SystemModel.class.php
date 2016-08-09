@@ -15,7 +15,6 @@ class SystemModel extends BaseModel
     public function _initialize()
     {
         parent::_initialize();
-
     }
 
     /**
@@ -73,7 +72,7 @@ class SystemModel extends BaseModel
      * @param  array      $where [查询条件]
      * @return [type]            [description]
      */
-    protected function getCount($where=array())
+    public function getCount($where=array())
     {
         $count = $this->where($where)->count();
         return $count ? $count : 0;
@@ -112,6 +111,42 @@ class SystemModel extends BaseModel
             $map['where'] = '1=1';
         }
         return $map;
+    }
+
+    /**
+     * [addData 新增数据]
+     * @Author haodaquan
+     * @Date   2016-04-27
+     * @param  [type]     $data [description]
+     * @return [type]            [id]
+     */
+    public function addData($data)
+    {
+        return  $this->data($data)->add();
+    }
+
+    /**
+     * [saveData 保存数据成功]
+     * @Author haodaquan
+     * @Date   2016-04-27
+     * @param  [type]     $data [含有id]
+     * @return [type]           [description]
+     */
+    public function saveData($data)
+    {
+        return  $this->data($data)->save();
+    }
+
+    /**
+     * [deleteData 删除数据]
+     * @Author haodaquan
+     * @Date   2016-04-29
+     * @param  [type]     $where [description]
+     * @return [type]         [description]
+     */
+    public function deleteData($where)
+    {
+        return  $this->where($where)->delete();
     }
 
 }

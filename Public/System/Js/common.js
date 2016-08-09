@@ -33,19 +33,20 @@ function deleteAction(id)
 }
 
 //新增或修改
-function dataSave(submit_button='submit_button',url='inputAjax')
+function dataSave(url='inputAjax',returnUrl='index',submit_button='submit_button')
 {
+
     $('#'+submit_button).on('click',function(){
-        var data = $('#form_data').serialize();
+        var formdata = $('#form_data').serialize();
         $.ajax({
             type: "POST",
             url: url,
-            data: data,
+            data: formdata,
             success: function(data) {
                 console.log(data);
                 if(data.status=="200"){
                     alert(data.message);
-                    
+                    window.location.href = returnUrl;
                 }else{
                     alert(data.message);
                 }
